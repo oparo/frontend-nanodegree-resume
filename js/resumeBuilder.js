@@ -1,96 +1,16 @@
-//work contains an array of jobs. Each object in the jobs array should contain an employer, title, location, dates worked and description strings.
-var work = {
-  "jobs" : [
-    {
-      //"employer" : "AT&T",
-      "title" : "Associate Director",
-      "location" : "San Antonio, TX",
-      "dates" : "2016 - present"//,
-    //  "description" : "As a member of the IP Voice group, responsible for support and implementation of key technologies in the Call Center Technolgies organization."
-    },
-    {
-      //"employer" : "AT&T Services Inc.",
-      "title" : "Sr. Technical Team Leader",
-      "location" : "San Antonio, TX",
-      "dates" : "2010 - 2016"//,
-      //"description" : "Responsible for the team that supports the CQM application platform across AT&T. Responsiblities include implementation and support of the CQM application platform as part of the Call Center Technolgies organization."
-    }
-  ],
-
-  "display" : function () {
-    var pos = $("#workExperience");
-    this.jobs.forEach ((position) => {
-        var posEntry = $(HTMLworkStart);
-        posEntry.append(HTMLworkEmployer.replace("%data%", position.title) +
-        HTMLworkDates.replace ("%data%", position.dates));
-        posEntry.append(HTMLworkLocation.replace("%data%", position.location));
-        pos.append(posEntry);
-    });
-  }
-};
-work.display();
-
-$("#mapDiv").append(googleMap);
-//projects contains an array of projects. Each object in the projects array should contain title, dates and description strings, and an images array with URL strings for project images.
-var projects = {
-  "projects" : [
-    {
-      //"title" : "DTV integration",
-      "name" : "Article",
-      "dates" : "2017",
-      "description" : "Project1"
-      //"description" : "Implementation of the CQM & IEX platforms at 7 internal DTV call centers, impaction over 4000 agents."
-    },
-    {
-      //"title" : "Upgrade to Impact 360 15.1",
-      "name" : "Card",
-      "dates" : "2017",
-      "description" : "Project2"
-      //"description" : "Upgrade the exsisting 11.1 platfrom to 15.1. Closely work with the vendor resources on the upgrade which includes datases and webservers across home solutions impacting approximately 12000 agents."
-    },
-    {
-      //"title" : "AEP IVR recording",
-      "name" : "Portfolio",
-      "dates" : "2017",
-      "description" : "Project3"
-      //"description" : "Implement a recording environment for the new AEP platform."
-    },
-    {
-      //"title" : "AEP IVR recording",
-      "name" : "Resume",
-      "dates" : "2017",
-      "description" : "Projec4"
-      //"description" : "Implement a recording environment for the new AEP platform."
-    }
-  ],
-
-  "display" : function () {
-    var proj = $("#projects");
-    this.projects.forEach((projects) => {
-      var projEntry = $(HTMLprojectStart);
-      projEntry.append(HTMLprojectTitle.replace("%data%", projects.name));
-      projEntry.append(HTMLprojectDates.replace("%data%", projects.dates));
-      projEntry.append(HTMLprojectDescription.replace("%data%", projects.description));
-      proj.append(projEntry);
-    });
-  }
-};
-projects.display();
-
-//bio contains name, role, welcomeMessage, and biopic strings, contacts object and skills array of skill strings. The contacts object should contain a mobile number, email address, github username, twitter handle and location. The twitter property is optional
+//Bio object
 var bio = {
-  "name" : "Padala",
-  "role" : "Manager",
-  "welcomeMessage" : "Change is constant. Accept and adapt to it.",
-  "biopic" : "images/fry.jpg",
-//  "age" : 42,
+  "name" : "Sreeram Padala",
+  "role" : "Technical Director",
   "contacts" : {
       "mobile" : "210-474-7814",
-      "email" : "sreeram.padala@att.com",
-      "github" : "sreeram.padala@att.com",
+      "email" : "sreeram@gmail.com",
+      "github" : "https://github.com/oparo/frontend-nanodegree-resume",
       "location" : "San Antonio, TX"
     },
-  "skills" : ["awesomeness","programming","teaching","JS"],
+  "welcomeMessage" : "Change is constant. Accept and adapt to it.",
+  "skills" : ["Web Programming","Scripting","Database Administration"],
+  "biopic" : "images/fry.jpg",
 
   "display": function () {
     var header = $("#header");
@@ -111,6 +31,8 @@ var bio = {
     contact = HTMLContact("Email", this.contacts.email);
     topContacts.append(contact);
     bottomContacts.append(contact);
+    contact = HTMLContact("Github", this.contacts.github);
+    bottomContacts.append(contact);
     contact = HTMLContact("Location",this.contacts.location);
     topContacts.append(contact);
     bottomContacts.append(contact);
@@ -121,7 +43,7 @@ var bio = {
     if (this.skills && this.skills.length > 0) {
       header.append(HTMLskillsStart);
       var skills = $("#skills");
-      this.skills.forEach((skill) => {
+      this.skills.forEach(function(skill) {
         skills.append (HTMLskills.replace("%data%", skill));
       });
     }
@@ -130,33 +52,29 @@ var bio = {
 
 bio.display();
 
-
 //education contains an array of schools. Each object in the schools array contains name, location, degree dates and url strings, and amajors array of major strings.
 var education = {
   "schools" : [
     {
-      "name" : "UTSA",
-      "location" : "San Antonio, TX",
+      "name" : "UT",
+      "location" : "Austin, TX",
       "degree" : "Masters",
+      "majors" : ["MS IT","Statistics"],
       "dates" : "2003-2005",
-      "url" : "www.utsa.com",
-      "majors" : ["MS IT","Statistics"]
+      "url" : "www.utexas.edu"
     },
     {
       "name" : "SAC",
-      "location" : "San Antonio, TX",
-      "degree" : "Certificate course",
+      "location" : "San Diego, CA",
+      "degree" : "Diploma",
+      "majors" : ["Oracle DBA"],
       "dates" : "1999",
-      "url" : "www.accd.edu/sac",
-      "majors" : ["Oracle DBA"]
+      "url" : "www.accd.edu/sac"
     }
   ],
   "onlineCourses" : [
     {
-      //"course" : "Frontend Web Developer",
-      //"type" : "Nano-Degree",
-      //"dates" : 2017
-      "title" : "HTML",
+      "title" : "Git",
       "school" : "Udacity",
       "dates" : "2016-2017",
       "url" : "Udacity.com"
@@ -192,7 +110,79 @@ var education = {
 
 education.display();
 
+//Work object
+var work = {
+  "jobs" : [
+    {
+      "employer" : "AT&T",
+      "title" : "Tech Director",
+      "location" : "San Antonio, TX",
+      "dates" : "2016 - present",
+      "description" : "Responsible for multiple application groups including programmers and DBAs."
+    },
+    {
+      "employer" : "AT&T Services Inc.",
+      "title" : "Team Lead",
+      "location" : "Dallas, TX",
+      "dates" : "2010 - 2016",
+      "description" : "As team lead was responsible for 6 team members in support of applications for our organization. Responsiblities include creating new programs in support of the application platform."
+    }
+  ],
 
+  "display" : function () {
+    var pos = $("#workExperience");
+    this.jobs.forEach (function(position) {
+        var posEntry = $(HTMLworkStart);
+        posEntry.append(HTMLworkEmployer.replace("%data%", position.employer) + HTMLworkTitle.replace ("%data%", position.title));
+        posEntry.append(HTMLworkDates.replace ("%data%", position.dates));
+        posEntry.append(HTMLworkLocation.replace("%data%", position.location));
+        posEntry.append(HTMLworkDescription.replace("%data%", position.description));
+        pos.append(posEntry);
+    });
+  }
+};
+work.display();
+
+//Projects object
+var projects = {
+  "projects" : [
+    {
+      "title" : "Portfolio",
+      "dates" : "2017",
+      "description" : "Project1",
+      "images" : ["https://www.projectsmart.co.uk/img/pm-workflow.png"]
+    },
+    {
+      "title" : "Resume",
+      "dates" : "2017",
+      "description" : "Project2",
+      "images" : [" "]
+    },
+    {
+      "title" : "Arcade Game",
+      "dates" : "2017",
+      "description" : "Project3",
+      "images" : [" "]
+    }
+  ],
+
+  "display" : function () {
+    var proj = $("#projects");
+    this.projects.forEach(function(projects) {
+      var projEntry = $(HTMLprojectStart);
+      projEntry.append(HTMLprojectTitle.replace("%data%", projects.title));
+      projEntry.append(HTMLprojectDates.replace("%data%", projects.dates));
+      projEntry.append(HTMLprojectDescription.replace("%data%", projects.description));
+      projEntry.append(HTMLprojectImage.replace("%data%", projects.images));
+      proj.append(projEntry);
+    });
+  }
+};
+projects.display();
+
+
+// Code to display the google Map
+$("#mapDiv").append(googleMap);
 
 /*
 if (bio.skills.length > 0){
