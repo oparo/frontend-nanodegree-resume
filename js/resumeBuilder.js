@@ -43,9 +43,13 @@ var bio = {
     if (this.skills && this.skills.length > 0) {
       header.append(HTMLskillsStart);
       var skills = $("#skills");
+      /*
       this.skills.forEach(function(skill) {
         skills.append (HTMLskills.replace("%data%", skill));
-      });
+      });*/
+      for(var i = 0; i < this.skills.length; i++){
+           skills.append (HTMLskills.replace("%data%", this.skills[i]));
+      };
     }
   }
 };
@@ -168,18 +172,20 @@ var projects = {
 
   "display" : function () {
     var proj = $("#projects");
-    this.projects.forEach(function(projects) {
+    /*this.projects.forEach(function(projects) {
       var projEntry = $(HTMLprojectStart);
       projEntry.append(HTMLprojectTitle.replace("%data%", projects.title));
       projEntry.append(HTMLprojectDates.replace("%data%", projects.dates));
       projEntry.append(HTMLprojectDescription.replace("%data%", projects.description));
       projEntry.append(HTMLprojectImage.replace("%data%", projects.images));
       proj.append(projEntry);
-    });
+    });*/
+    for(var i=0; i<this.projects.length; i++){
+
+    }    
   }
 };
 projects.display();
-
 
 // Code to display the google Map
 $("#mapDiv").append(googleMap);
