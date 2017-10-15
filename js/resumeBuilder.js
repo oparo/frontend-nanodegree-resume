@@ -181,8 +181,13 @@ var projects = {
       proj.append(projEntry);
     });*/
     for(var i=0; i<this.projects.length; i++){
-
-    }    
+      var projEntry = $(HTMLprojectStart);
+      projEntry.append(HTMLprojectTitle.replace("%data%", this.projects[i].title));
+      projEntry.append(HTMLprojectDates.replace("%data%", this.projects[i].dates));
+      projEntry.append(HTMLprojectDescription.replace("%data%", this.projects[i].description));
+      projEntry.append(HTMLprojectImage.replace("%data%", this.projects[i].images));
+      proj.append(projEntry);
+    }
   }
 };
 projects.display();
