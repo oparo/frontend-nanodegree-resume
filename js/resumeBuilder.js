@@ -1,7 +1,7 @@
 //Bio object
 var bio = {
   "name" : "Sreeram Padala",
-  "role" : "Technical Director",
+  "role" : "Manager",
   "contacts" : {
       "mobile" : "210-474-7814",
       "email" : "sreeram@gmail.com",
@@ -93,22 +93,37 @@ var education = {
 
   "display": function () {
     var edu = $("#education");
-    this.schools.forEach(function(school) {
+    /*this.schools.forEach(function(school) {
       var eduEntry = $(HTMLschoolStart);
       eduEntry.append(HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.degree));
       eduEntry.append(HTMLschoolDates.replace("%data%", school.dates));
       eduEntry.append(HTMLschoolLocation.replace("%data%", school.location));
       eduEntry.append(HTMLschoolMajor.replace("%data%", school.majors.join(" ,")));
       edu.append(eduEntry);
-    });
+    });*/
+    for(var i=0; i<this.schools.length; i++){
+      var eduEntry = $(HTMLschoolStart);
+      eduEntry.append(HTMLschoolName.replace("%data%", this.schools[i].name) + HTMLschoolDegree.replace("%data%", this.schools[i].degree));
+      eduEntry.append(HTMLschoolDates.replace("%data%", this.schools[i].dates));
+      eduEntry.append(HTMLschoolLocation.replace("%data%", this.schools[i].location));
+      eduEntry.append(HTMLschoolMajor.replace("%data%", this.schools[i].majors.join(" ,")));
+      edu.append(eduEntry);
+    }
     edu.append(HTMLonlineClasses);
-    this.onlineCourses.forEach(function(course) {
+    /*this.onlineCourses.forEach(function(course) {
       var eduEntry = $(HTMLschoolStart);
       eduEntry.append(HTMLonlineTitle.replace("%data%", course.title) + HTMLonlineSchool.replace("%data%", course.school));
       eduEntry.append(HTMLonlineDates.replace("%data%", course.dates));
       eduEntry.append(HTMLonlineURL.replace("%data%", course.url));
       edu.append(eduEntry);
-    });
+    });*/
+    for(var j=0; j<this.onlineCourses.length; j++){
+      var eduEntry = $(HTMLschoolStart);
+      eduEntry.append(HTMLonlineTitle.replace("%data%", this.onlineCourses[j].title) + HTMLonlineSchool.replace("%data%", this.onlineCourses[j].school));
+      eduEntry.append(HTMLonlineDates.replace("%data%", this.onlineCourses[j].dates));
+      eduEntry.append(HTMLonlineURL.replace("%data%", this.onlineCourses[j].url));
+      edu.append(eduEntry);
+    }
   }
 };
 
@@ -119,7 +134,7 @@ var work = {
   "jobs" : [
     {
       "employer" : "AT&T",
-      "title" : "Tech Director",
+      "title" : "Manager",
       "location" : "San Antonio, TX",
       "dates" : "2016 - present",
       "description" : "Responsible for multiple application groups including programmers and DBAs."
@@ -135,14 +150,22 @@ var work = {
 
   "display" : function () {
     var pos = $("#workExperience");
-    this.jobs.forEach (function(position) {
+    /*this.jobs.forEach (function(position) {
         var posEntry = $(HTMLworkStart);
         posEntry.append(HTMLworkEmployer.replace("%data%", position.employer) + HTMLworkTitle.replace ("%data%", position.title));
         posEntry.append(HTMLworkDates.replace ("%data%", position.dates));
         posEntry.append(HTMLworkLocation.replace("%data%", position.location));
         posEntry.append(HTMLworkDescription.replace("%data%", position.description));
         pos.append(posEntry);
-    });
+    });*/
+    for(var j=0; j<this.jobs.length; j++){
+        var posEntry = $(HTMLworkStart);
+        posEntry.append(HTMLworkEmployer.replace("%data%", this.jobs[j].employer) + HTMLworkTitle.replace ("%data%", this.jobs[j].title));
+        posEntry.append(HTMLworkDates.replace ("%data%", this.jobs[j].dates));
+        posEntry.append(HTMLworkLocation.replace("%data%", this.jobs[j].location));
+        posEntry.append(HTMLworkDescription.replace("%data%", this.jobs[j].description));
+        pos.append(posEntry);
+    };
   }
 };
 work.display();
