@@ -104,8 +104,14 @@ a {
   display: none;
 }
 
+.bluef {
+  background-image: url(../images/Wallpaper.jpg);
+  background-color: #1199c3;
+  color: #f5ae23;
+}
+
 .orange {
-  background-color: #999;
+  background-color: #f5a623;
 }
 
 .orange-text {
@@ -124,11 +130,13 @@ a {
 }
 
 .dark-gray {
+  background-image: url(../images/Wallpaper.jpg);
   background-color: #4a4a4a;
 }
 
 /* TODO: Replace with image later */
 #header {
+  background-image: url(../images/Wallpaper.jpg);
   background-color: #484848;
 }
 

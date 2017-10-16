@@ -150,13 +150,13 @@ var projects = {
       "title" : "Portfolio",
       "dates" : "2017",
       "description" : "Project1",
-      "images" : ["https://www.projectsmart.co.uk/img/pm-workflow.png"]
+      "images" : ["images/images.jpg"]
     },
     {
       "title" : "Resume",
       "dates" : "2017",
       "description" : "Project2",
-      "images" : [" "]
+      "images" : ["images/Scenarios.png"]
     },
     {
       "title" : "Arcade Game",
