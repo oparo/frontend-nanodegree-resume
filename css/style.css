@@ -34,7 +34,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: darkblue;
   line-height: 29px;
   padding: 10px;
 }
@@ -105,7 +105,7 @@ a {
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #999;
 }
 
 .orange-text {

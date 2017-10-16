@@ -131,12 +131,12 @@ var work = {
 
   "display" : function () {
     var pos = $("#workExperience");
-    for(var j=0; j<this.jobs.length; j++){
+    for(var i=0; i<this.jobs.length; i++){
         var posEntry = $(HTMLworkStart);
-        posEntry.append(HTMLworkEmployer.replace("%data%", this.jobs[j].employer) + HTMLworkTitle.replace ("%data%", this.jobs[j].title));
-        posEntry.append(HTMLworkDates.replace ("%data%", this.jobs[j].dates));
-        posEntry.append(HTMLworkLocation.replace("%data%", this.jobs[j].location));
-        posEntry.append(HTMLworkDescription.replace("%data%", this.jobs[j].description));
+        posEntry.append(HTMLworkEmployer.replace("%data%", this.jobs[i].employer) + HTMLworkTitle.replace ("%data%", this.jobs[i].title));
+        posEntry.append(HTMLworkDates.replace ("%data%", this.jobs[i].dates));
+        posEntry.append(HTMLworkLocation.replace("%data%", this.jobs[i].location));
+        posEntry.append(HTMLworkDescription.replace("%data%", this.jobs[i].description));
         pos.append(posEntry);
     };
   }
