@@ -36,7 +36,14 @@ var bio = {
     contact = HTMLContact("Location",this.contacts.location);
     topContacts.append(contact);
     bottomContacts.append(contact);
-
+/*
+    $("#topContacts, #footerContacts").append(
+      HTMLcontactGeneric.replace("%contact%", "Phone").replace ("%data%",this.contacts.mobile),
+      HTMLcontactGeneric.replace("%contact%","Email").replace ("%data%",this.contacts.email),
+      HTMLcontactGeneric.replace("%contact%","Github").replace ("%data%",this.contacts.github),
+      HTMLcontactGeneric.replace("%contact%","Location").replace ("%data%",this.contacts.location)
+    );
+*/
     header.append(HTMLbioPic.replace("%data%", this.biopic));
     header.append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
 
@@ -162,7 +169,7 @@ var projects = {
       "title" : "Arcade Game",
       "dates" : "2017",
       "description" : "Project3",
-      "images" : [" "]
+      "images" : []
     }
   ],
 
