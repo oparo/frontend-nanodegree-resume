@@ -18,7 +18,7 @@ var bio = {
     header.prepend(HTMLheaderName.replace("%data%", this.name));
 
     $("#topContacts, #footerContacts").append(
-      HTMLcontactGeneric.replace("%contact%", "Phone").replace ("%data%",this.contacts.mobile),
+      HTMLcontactGeneric.replace("%contact%","Phone").replace ("%data%",this.contacts.mobile),
       HTMLcontactGeneric.replace("%contact%","Email").replace ("%data%",this.contacts.email),
       HTMLcontactGeneric.replace("%contact%","Github").replace ("%data%",this.contacts.github),
       HTMLcontactGeneric.replace("%contact%","Location").replace ("%data%",this.contacts.location)
@@ -137,7 +137,7 @@ var projects = {
       "title" : "Portfolio",
       "dates" : "2017",
       "description" : "Project1",
-      "images" : ["images/images.jpg"]
+      "images" : ["images/images.jpg","images/images.jpg"]
     },
     {
       "title" : "Resume",
@@ -149,7 +149,7 @@ var projects = {
       "title" : "Arcade Game",
       "dates" : "2017",
       "description" : "Project3",
-      "images" : []
+      "images" : [""]
     }
   ],
 
@@ -160,7 +160,13 @@ var projects = {
       projEntry.append(HTMLprojectTitle.replace("%data%", this.projects[i].title));
       projEntry.append(HTMLprojectDates.replace("%data%", this.projects[i].dates));
       projEntry.append(HTMLprojectDescription.replace("%data%", this.projects[i].description));
-      projEntry.append(HTMLprojectImage.replace("%data%", this.projects[i].images));
+      //projEntry.append(HTMLprojectImage.replace("%data%", this.projects[i].images));
+      if (this.projects[i].images.length > 0) {
+        header.append(HTMLprojectImage);
+        for(var j = 0; j < this.projects[i].images.length; j++){
+             projEntry.append(HTMLprojectImage.replace("%data%", this.projects[i].images[j]));
+        };
+      }
       proj.append(projEntry);
     }
   }
