@@ -160,9 +160,7 @@ var projects = {
       projEntry.append(HTMLprojectTitle.replace("%data%", this.projects[i].title));
       projEntry.append(HTMLprojectDates.replace("%data%", this.projects[i].dates));
       projEntry.append(HTMLprojectDescription.replace("%data%", this.projects[i].description));
-      //projEntry.append(HTMLprojectImage.replace("%data%", this.projects[i].images));
       if (this.projects[i].images.length > 0) {
-        header.append(HTMLprojectImage);
         for(var j = 0; j < this.projects[i].images.length; j++){
              projEntry.append(HTMLprojectImage.replace("%data%", this.projects[i].images[j]));
         };
