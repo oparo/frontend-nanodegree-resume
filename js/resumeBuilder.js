@@ -17,33 +17,13 @@ var bio = {
     header.prepend(HTMLheaderRole.replace("%data%", this.role));
     header.prepend(HTMLheaderName.replace("%data%", this.name));
 
-    var topContacts = $("#topContacts");
-    var bottomContacts = $("#footerContacts");
-    var contact;
-
-    function HTMLContact(key, value) {
-      return value ? HTMLcontactGeneric.replace("%contact%", key).replace ("%data%", value) : undefined;
-    }
-
-    contact = HTMLContact("Phone", this.contacts.mobile);
-    topContacts.append(contact);
-    bottomContacts.append(contact);
-    contact = HTMLContact("Email", this.contacts.email);
-    topContacts.append(contact);
-    bottomContacts.append(contact);
-    contact = HTMLContact("Github", this.contacts.github);
-    bottomContacts.append(contact);
-    contact = HTMLContact("Location",this.contacts.location);
-    topContacts.append(contact);
-    bottomContacts.append(contact);
-/*
     $("#topContacts, #footerContacts").append(
       HTMLcontactGeneric.replace("%contact%", "Phone").replace ("%data%",this.contacts.mobile),
       HTMLcontactGeneric.replace("%contact%","Email").replace ("%data%",this.contacts.email),
       HTMLcontactGeneric.replace("%contact%","Github").replace ("%data%",this.contacts.github),
       HTMLcontactGeneric.replace("%contact%","Location").replace ("%data%",this.contacts.location)
     );
-*/
+
     header.append(HTMLbioPic.replace("%data%", this.biopic));
     header.append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
 
