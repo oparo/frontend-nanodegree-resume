@@ -13,9 +13,9 @@ var bio = {
   "biopic" : "images/fry.jpg",
 
   "display": function () {
-    var header = $("#header");
-    header.prepend(HTMLheaderRole.replace("%data%", this.role));
-    header.prepend(HTMLheaderName.replace("%data%", this.name));
+    var myheader = $("#header");
+    myheader.prepend(HTMLheaderRole.replace("%data%", this.role));
+    myheader.prepend(HTMLheaderName.replace("%data%", this.name));
 
     $("#topContacts, #footerContacts").append(
       HTMLcontactGeneric.replace("%contact%","Phone").replace ("%data%",this.contacts.mobile),
@@ -24,19 +24,18 @@ var bio = {
       HTMLcontactGeneric.replace("%contact%","Location").replace ("%data%",this.contacts.location)
     );
 
-    header.append(HTMLbioPic.replace("%data%", this.biopic));
-    header.append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
+    myheader.append(HTMLbioPic.replace("%data%", this.biopic));
+    myheader.append(HTMLwelcomeMsg.replace("%data%", this.welcomeMessage));
 
     if (this.skills && this.skills.length > 0) {
-      header.append(HTMLskillsStart);
-      var skills = $("#skills");
+      myheader.append(HTMLskillsStart);
+      var mySkills = $("#skills");
       for(var i = 0; i < this.skills.length; i++){
-           skills.append (HTMLskills.replace("%data%", this.skills[i]));
-      };
+           mySkills.append (HTMLskills.replace("%data%", this.skills[i]));
+      }
     }
   }
 };
-
 bio.display();
 
 //education object
@@ -75,26 +74,27 @@ var education = {
   ],
 
   "display": function () {
-    var edu = $("#education");
     for(var i=0; i<this.schools.length; i++){
-      var eduEntry = $(HTMLschoolStart);
-      eduEntry.append(HTMLschoolName.replace("%data%", this.schools[i].name) + HTMLschoolDegree.replace("%data%", this.schools[i].degree));
-      eduEntry.append(HTMLschoolDates.replace("%data%", this.schools[i].dates));
-      eduEntry.append(HTMLschoolLocation.replace("%data%", this.schools[i].location));
-      eduEntry.append(HTMLschoolMajor.replace("%data%", this.schools[i].majors.join(" ,")));
-      edu.append(eduEntry);
+      var myEducation = $(HTMLschoolStart).append(
+        HTMLschoolName.replace("%data%", this.schools[i].name) + HTMLschoolDegree.replace("%data%", this.schools[i].degree),
+        HTMLschoolDates.replace("%data%", this.schools[i].dates),
+        HTMLschoolLocation.replace("%data%", this.schools[i].location),
+        HTMLschoolMajor.replace("%data%", this.schools[i].majors)
+      );
+      $("#education").append(myEducation);
+
     }
-    edu.append(HTMLonlineClasses);
+    $("#education").append(HTMLonlineClasses);
     for(var j=0; j<this.onlineCourses.length; j++){
-      var eduEntry = $(HTMLschoolStart);
-      eduEntry.append(HTMLonlineTitle.replace("%data%", this.onlineCourses[j].title) + HTMLonlineSchool.replace("%data%", this.onlineCourses[j].school));
-      eduEntry.append(HTMLonlineDates.replace("%data%", this.onlineCourses[j].dates));
-      eduEntry.append(HTMLonlineURL.replace("%data%", this.onlineCourses[j].url));
-      edu.append(eduEntry);
+      var myClasses = $(HTMLschoolStart).append(
+        HTMLonlineTitle.replace("%data%", this.onlineCourses[j].title) + HTMLonlineSchool.replace("%data%", this.onlineCourses[j].school),
+        HTMLonlineDates.replace("%data%", this.onlineCourses[j].dates),
+        HTMLonlineURL.replace("%data%", this.onlineCourses[j].url)
+      );
+      $("#education").append(myClasses);
     }
   }
 };
-
 education.display();
 
 //Work object
@@ -115,17 +115,16 @@ var work = {
       "description" : "As team lead was responsible for 6 team members in support of applications for our organization. Responsiblities include creating new programs in support of the application platform."
     }
   ],
-
   "display" : function () {
-    var pos = $("#workExperience");
     for(var i=0; i<this.jobs.length; i++){
-        var posEntry = $(HTMLworkStart);
-        posEntry.append(HTMLworkEmployer.replace("%data%", this.jobs[i].employer) + HTMLworkTitle.replace ("%data%", this.jobs[i].title));
-        posEntry.append(HTMLworkDates.replace ("%data%", this.jobs[i].dates));
-        posEntry.append(HTMLworkLocation.replace("%data%", this.jobs[i].location));
-        posEntry.append(HTMLworkDescription.replace("%data%", this.jobs[i].description));
-        pos.append(posEntry);
-    };
+        var myWork =  $(HTMLworkStart).append(
+          HTMLworkEmployer.replace("%data%", this.jobs[i].employer) + HTMLworkTitle.replace ("%data%", this.jobs[i].title),
+          HTMLworkDates.replace ("%data%", this.jobs[i].dates),
+          HTMLworkLocation.replace("%data%", this.jobs[i].location),
+          HTMLworkDescription.replace("%data%", this.jobs[i].description)
+        );
+        $("#workExperience").append(myWork);
+    }
   }
 };
 work.display();
@@ -154,18 +153,15 @@ var projects = {
   ],
 
   "display" : function () {
-    var proj = $("#projects");
     for(var i=0; i<this.projects.length; i++){
-      var projEntry = $(HTMLprojectStart);
-      projEntry.append(HTMLprojectTitle.replace("%data%", this.projects[i].title));
-      projEntry.append(HTMLprojectDates.replace("%data%", this.projects[i].dates));
-      projEntry.append(HTMLprojectDescription.replace("%data%", this.projects[i].description));
-      if (this.projects[i].images.length > 0) {
-        for(var j = 0; j < this.projects[i].images.length; j++){
-             projEntry.append(HTMLprojectImage.replace("%data%", this.projects[i].images[j]));
-        };
+      var myProjects = $(HTMLprojectStart);
+      myProjects.append(HTMLprojectTitle.replace("%data%", this.projects[i].title));
+      myProjects.append(HTMLprojectDates.replace("%data%", this.projects[i].dates));
+      myProjects.append(HTMLprojectDescription.replace("%data%", this.projects[i].description));
+      for(var j = 0; j < this.projects[i].images.length; j++){
+           myProjects.append(HTMLprojectImage.replace("%data%", this.projects[i].images[j]));
       }
-      proj.append(projEntry);
+      $("#projects").append(myProjects);
     }
   }
 };
